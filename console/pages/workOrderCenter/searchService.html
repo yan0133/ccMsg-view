@@ -1,0 +1,364 @@
+<div class="zc-content-header">自定义查询</div>
+<div class="zc-content-body" style="min-width:911px">
+	<div class="zc-listBox">
+		<div class="panel panel-default">
+			<div class="searchBox">
+				<div class="searchBox_line">
+					<div class="zhiDropdowns zhiDropdowns-200-36 l1">
+						<button class="zhiDropdowns-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="zhiDropdowns-btn-value" ng-bind="searchQueryType.typeName">模糊查询</span>
+							<span class="zhiDropdowns-btn-tag glyphicon glyphicon-menu-down"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-repeat="item in queryType">
+								<a href="javascript:;" ng-bind="item.typeName" ng-click="changeQueryType(item.typeName, item.typeValue)">模糊查询</a>
+							</li>
+						</ul>
+					</div>
+					<div class="zhiInput zhiInput-302-36 l2">
+						<input class="zhiInput_style1 form-control" maxlength="30" ng-model="queryContent" ng-keydown="searchCommit($event.keyCode)" placeholder="请输入搜索内容...">
+						<span class="zhiInput-search" ng-click="searchCommit('click')">搜索工单</span>
+					</div>
+				</div>
+				<div class="searchBox_line" style="border-bottom: 1px dashed #999999">
+					<span class="quickSearchTitle">创建时间：</span>
+					<ul class="quickSearchList">
+						<li ng-repeat="item in creatTime" class="quickSearchItem" ng-class="{'active':item.typeName == searchCreatTime.typeName}" ng-click="changeCreatTime(item.typeName, item.startTime, item.endTime)">
+							<a href="javascript:;" ng-bind="item.typeName"></a>
+						</li>
+					</ul>
+					<div ng-show="searchCreatTime.typeName === '自定义'">
+						<div class="zhiInput zhiInput-150-36 quickSearchInput" style="float: left">
+							<input id="creatTimeStart" ng-model="datePlugs.creatYesterdayPlugs" style="padding-left: 10px"></div>
+						<span class="quickSearchTitle">至</span>
+						<div class="zhiInput zhiInput-150-36 quickSearchInput" style="float: left">
+							<input id="creatTimeEnd" ng-model="datePlugs.creatTodayPlugs" style="padding-left: 10px"></div>
+					</div>
+				</div>
+				<div class="searchBox_line" style="border-bottom: 1px dashed #999999">
+					<span class="quickSearchTitle">更新时间：</span>
+					<ul class="quickSearchList">
+						<li ng-repeat="item in updateTime" class="quickSearchItem" ng-class="{'active':item.typeName == searchUpdateTime.typeName}" ng-click="changeUpdateTime(item.typeName, item.startTime, item.endTime)">
+							<a href="javascript:;" ng-bind="item.typeName"></a>
+						</li>
+					</ul>
+					<div ng-show="searchUpdateTime.typeName === '自定义'">
+						<div class="zhiInput zhiInput-150-36 quickSearchInput" style="float: left">
+							<input id="updateTimeStart" ng-model="datePlugs.updateYesterdayPlugs" style="padding-left: 10px"></div>
+						<span class="quickSearchTitle">至</span>
+						<div class="zhiInput zhiInput-150-36 quickSearchInput" style="float: left">
+							<input id="updateTimeEnd" ng-model="datePlugs.updateTodayPlugs" style="padding-left: 10px"></div>
+					</div>
+				</div>
+				<div class="searchBox_line">
+					<span class="quickSearchTitle">其他属性：</span>
+					<div class="zhiDropdowns zhiDropdowns-160-36 fl">
+						<button class="zhiDropdowns-btn zhiDropdowns-radius-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="zhiDropdowns-btn-value" ng-bind="searchQueryServiceGroup.groupName">－</span>
+							<span class="zhiDropdowns-btn-tag glyphicon glyphicon-menu-down"></span>
+						</button>
+						<ul class="dropdown-menu" style="max-height: 200px" zc-scrollbars>
+							<li ng-repeat="item in queryServiceGroupListSearch" ng-click="getQueryServiceGroupListSearch(item.groupId, item.groupName)">
+								<a href="javascript:;" ng-bind="item.groupName.length>10?((item.groupName | limitTo:5)+'...'):item.groupName;"></a>
+							</li>
+						</ul>
+					</div>
+					<div class="zhiDropdowns zhiDropdowns-160-36 fl">
+						<button class="zhiDropdowns-btn zhiDropdowns-radius-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="zhiDropdowns-btn-value" ng-bind="searchQueryService.serviceName">－</span>
+							<span class="zhiDropdowns-btn-tag glyphicon glyphicon-menu-down"></span>
+						</button>
+						<ul class="dropdown-menu" style="max-height: 200px" zc-scrollbars>
+							<li ng-repeat="item in queryServiceListSearch" ng-click="getQueryServiceListSearch(item.serviceId, item.serviceName)">
+								<a href="javascript:;" ng-bind="item.serviceName.length>
+									10?((item.serviceName | limitTo:5)+'...'):item.serviceName;">
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="zhiDropdowns zhiDropdowns-112-36 fl">
+						<button class="zhiDropdowns-btn zhiDropdowns-radius-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="zhiDropdowns-btn-value" ng-bind="searchTicketStatus.dictName">－</span>
+							<span class="zhiDropdowns-btn-tag glyphicon glyphicon-menu-down"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-repeat="item in ticketStatusSearch" ng-click="getTicketStatusSearch(item.dictValue,item.dictName)">
+								<a href="javascript:;">{{item.dictName}}</a>
+							</li>
+						</ul>
+					</div>
+					<div class="zhiDropdowns zhiDropdowns-112-36 fl">
+						<button class="zhiDropdowns-btn zhiDropdowns-radius-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="zhiDropdowns-btn-value" ng-bind="searchTicketType.dictName">－</span>
+							<span class="zhiDropdowns-btn-tag glyphicon glyphicon-menu-down"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-repeat="item in ticketTypeSearch" ng-click="getTicketTypeSearch(item.dictValue,item.dictName)">
+								<a href="javascript:;">{{item.dictName}}</a>
+							</li>
+						</ul>
+					</div>
+					<div class="zhiDropdowns zhiDropdowns-134-36 fl">
+						<button class="zhiDropdowns-btn zhiDropdowns-radius-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="zhiDropdowns-btn-value" ng-bind="searchTicketLevel.dictName">－</span>
+							<span class="zhiDropdowns-btn-tag glyphicon glyphicon-menu-down"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-repeat="item in ticketLevelSearch" ng-click="getTicketLevelSearch(item.dictValue,item.dictName)">
+								<a href="javascript:;">{{item.dictName}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<table class="table dyy-positon-realative dyy-body-table">
+				<thead class="thead">
+					<tr>
+						<th>
+							<span class="body-checkbox" ng-show="content.items.length !== 0">
+								<span class="checkFalse" ng-class="{'checkTrue':isAllChecked,'checkFalse':!isAllChecked}" ng-click="allChecked(content.items)"></span>
+							</span>
+						</th>
+						<td class="item td1">编号</td>
+						<td class="item td1" title="点击后按优先级排序" ng-click="changeTicketLevelSort()" style="cursor: pointer">
+							优先级
+							<span class="zhi-icon-sort-def" ng-hide="sortCol == 'ticketLevel'"></span>
+							<span class="zhi-icon-sort-asc" ng-show="sortSeq == 'asc' && sortCol == 'ticketLevel'"></span>
+							<span class="zhi-icon-sort-desc" ng-show="sortSeq == 'desc' && sortCol == 'ticketLevel'"></span>
+						</td>
+						<td class="item td2">标题</td>
+						<td class="item td3">状态</td>
+						<td class="item td4">工单发起人</td>
+						<td class="item td5">受理客服组</td>
+						<td class="item td6">受理客服</td>
+						<td class="item td7" title="点击后按更新时间排序" ng-click="changeUpdateTimeSort()" style="cursor: pointer">
+							更新时间
+							<span class="zhi-icon-sort-def" ng-hide="sortCol == 'updateTime'"></span>
+							<span class="zhi-icon-sort-asc" ng-show="sortSeq == 'asc' && sortCol == 'updateTime'"></span>
+							<span class="zhi-icon-sort-desc" ng-show="sortSeq == 'desc' && sortCol == 'updateTime'"></span>
+						</td>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+					<tr ng-repeat="items in content.items">
+						<th>
+							<span class="body-checkbox">
+								<span class="checkFalse" ng-class="{'checkTrue':isSingleChecked[$index],'checkFalse':!isSingleChecked[$index]}" ng-click="singleChecked(content.items,items,$index)"></span>
+							</span>
+						</th>
+						<td class="item td1" ng-click="viewWorkOrderDetail(items)" ng-bind="items.ticketCode">编号</td>
+						<td class="item td1">
+							<span ng-show="items.ticketLevel == 0">低</span>
+							<span ng-show="items.ticketLevel == 1">中</span>
+							<span ng-show="items.ticketLevel == 2">高</span>
+							<span ng-show="items.ticketLevel == 3">紧急</span>
+						</td>
+						<td class="item td2" ng-click="viewWorkOrderDetail(items)">
+							<a href="javascript:;" ng-bind="items.ticketTitle.length>
+								23?(items.ticketTitle | limitTo : 24)+'...':items.ticketTitle" bs-popover="popover" data-placement="bottom" data-animation="am-flip-x" data-container="body" data-delay="500" data-template-url="./views/workOrderCenter/popovers.html" ng-mouseenter="getQuerySimpleTicketInfo(items.ticketId, $index)" data-trigger="hover">标题
+							</a>
+						</td>
+						<td class="item td3" ng-click="viewWorkOrderDetail(items)">
+							<span class="dyy-tag-status dyy-not" ng-class="{active :items.ticketStatus == 0}">尚未受理</span>
+							<span class="dyy-tag-status dyy-ing" ng-class="{active :items.ticketStatus == 1}">受理中</span>
+							<span class="dyy-tag-status dyy-success" ng-class="{active :items.ticketStatus == 3}">已解决</span>
+							<span class="dyy-tag-status dyy-wait" ng-class="{active :items.ticketStatus == 2}">等待回复</span>
+						</td>
+						<td class="item td4" ng-click="viewWorkOrderDetail(items)" ng-bind="items.startName.length>
+							7?(items.startName | limitTo : 7)+'...':items.startName">工单发起人
+						</td>
+						<td class="item td5" ng-click="viewWorkOrderDetail(items)" ng-bind="items.dealGroupName.length>
+							7?(items.dealGroupName | limitTo : 7)+'...':items.dealGroupName">受理客服组
+						</td>
+						<td class="item td6" ng-click="viewWorkOrderDetail(items)" ng-bind="items.dealUserName.length>
+							7?(items.dealUserName | limitTo : 7)+'...':items.dealUserName">受理客服
+						</td>
+						<td class="item td7" ng-click="viewWorkOrderDetail(items)" ng-bind="items.updateTime? (items.updateTime*1000 | date:'MM-dd HH:mm'):'--'">更新时间</td>
+					</tr>
+				</tbody>
+			</table>
+			<div ng-show="content.items.length == 0" class="tableNothing">目前没有工单信息</div>
+			<div class="zc-table-pagination">
+				<div zc-pagination-new config="newPageConfig.config" jump-to="jumpTo"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="zc-bottom-bar">
+	<input class="zc-bottom-delete" type="button" data-toggle="modal" data-target="#deleteWorkOrder" value="删除工单">
+	<input class="zc-bottom-edit" type="button" ng-click="getDefaultDropdownInfo()" value="编辑{{hasCheckedLength}}张工单">
+	<input class="zc-bottom-cancel" type="button" ng-click="cancelChoose()" value="取消选择"></div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="editWorkOrder">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">编辑选中工单</h4>
+			</div>
+			<div class="modal-body">
+				<div class="zc-model-menu">
+					<ul class="zc-menu-list">
+						<li class="zc-dropdown">
+							<div class="zc-dropdown-title">
+								<h5>受理客服组</h5>
+							</div>
+							<div class="btn-group autoResponse-btn-group dyy-body-toggle-40">
+								<button class="btn btn-default dropdown-toggle autoResponse-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="toggle-value" ng-bind="formData.dealGroupName">-</span>
+									<span class="toggle-tag glyphicon glyphicon-menu-down"></span>
+								</button>
+								<ul class="dropdown-menu autoResponse-dropdown-menu" style="max-height: 200px" zc-scrollbars>
+									<li ng-repeat="item in queryServiceGroupListAll" ng-click="getQueryServiceGroupList($index)">
+										<a href="javascript:;" ng-bind="item.groupName.length>10?((item.groupName | limitTo:5)+'...'):item.groupName;"></a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="zc-dropdown">
+							<div class="zc-dropdown-title">
+								<h5>分配受理客服</h5>
+							</div>
+							<div class="btn-group autoResponse-btn-group dyy-body-toggle-40">
+								<button class="btn btn-default dropdown-toggle autoResponse-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="toggle-value" ng-bind="formData.dealUserName">-</span>
+									<span class="toggle-tag glyphicon glyphicon-menu-down"></span>
+								</button>
+								<ul class="dropdown-menu autoResponse-dropdown-menu" style="max-height: 200px" zc-scrollbars>
+									<li ng-repeat="item in queryServiceListAll" ng-click="getQueryServiceList($index)">
+										<a href="javascript:;" ng-bind="item.serviceName.length>
+											10?((item.serviceName | limitTo:5)+'...'):item.serviceName;">
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="zc-dropdown">
+							<div class="zc-dropdown-title">
+								<h5>工单状态</h5>
+							</div>
+							<div class="btn-group autoResponse-btn-group dyy-body-toggle-40">
+								<button class="btn btn-default dropdown-toggle autoResponse-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="toggle-value" ng-bind="viewData.ticketStatus">-</span>
+									<span class="toggle-tag glyphicon glyphicon-menu-down"></span>
+								</button>
+								<ul class="dropdown-menu autoResponse-dropdown-menu">
+									<li ng-repeat="item in ticketStatusAll" ng-click="getTicketStatus(item.dictValue,item.dictName)">
+										<a href="javascript:;">{{item.dictName}}</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="zc-dropdown">
+							<div class="zc-dropdown-title">
+								<h5>工单类型</h5>
+							</div>
+							<div class="btn-group autoResponse-btn-group dyy-body-toggle-40">
+								<button class="btn btn-default dropdown-toggle autoResponse-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="toggle-value" ng-bind="viewData.ticketType">-</span>
+									<span class="toggle-tag glyphicon glyphicon-menu-down"></span>
+								</button>
+								<ul class="dropdown-menu autoResponse-dropdown-menu">
+									<li ng-repeat="item in ticketTypeAll" ng-click="getTicketType(item.dictValue,item.dictName)">
+										<a href="javascript:;">{{item.dictName}}</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="zc-dropdown">
+							<div class="zc-dropdown-title">
+								<h5>优先级</h5>
+							</div>
+							<div class="btn-group autoResponse-btn-group dyy-body-toggle-40">
+								<button class="btn btn-default dropdown-toggle autoResponse-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="toggle-value" ng-bind="viewData.ticketLevel">-</span>
+									<span class="toggle-tag glyphicon glyphicon-menu-down"></span>
+								</button>
+								<ul class="dropdown-menu autoResponse-dropdown-menu">
+									<li ng-repeat="item in ticketLevelAll" ng-click="getTicketLevel(item.dictValue,item.dictName)">
+										<a href="javascript:;">{{item.dictName}}</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="zc-model-content">
+					<div class="zc-canSeeType">
+						<h4>回复可见范围:</h4>
+						<span class="body-radio">
+							<span ng-class="{'radioTrue':(formData.replyType == 1 ),'radioFalse':formData.replyType !== 1}" ng-click="formData.replyType = 1"></span>
+							<span class="radioWord">仅客服</span>
+						</span>
+						<span class="body-radio" ng-hide="userInfo.replyAuthFlag == 1">
+							<span ng-class="{'radioTrue':(formData.replyType == 0 ),'radioFalse':formData.replyType !== 0}" ng-click="formData.replyType = 0"></span>
+							<span class="radioWord">所有人</span>
+						</span>
+					</div>
+					<div class="zc-content-question" style="margin-bottom: 120px">
+						<zc-editor id="editor_0" ng-model="formData.replyContent" config="ueditorConfig"></zc-editor>
+					</div>
+					<div class="btn-group dropup autoResponse-btn-group dyy-body-toggle-40">
+						<button class="btn btn-default dropdown-toggle autoResponse-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="toggle-value" ng-bind="loadAlreadyList" ng-init="loadAlreadyList = '预设工单回应'">-</span>
+							<span class="toggle-tag glyphicon glyphicon-menu-up"></span>
+						</button>
+						<ul class="dropdown-menu autoResponse-dropdown-menu">
+							<li ng-repeat="item in loadAlreadyListAll" ng-click="getLoadAlreadyListAll($index)">
+								<a href="javascript:;">{{item.taskName}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="zc-btn-cancle width90" data-dismiss="modal">取消</button>
+				<button type="button" style="margin-left: 15px" class="zc-btn-ok width90" ng-click="editConfirm()">提交</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade zc-account-alert" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="editWorkOrderCon">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">编辑选中的工单</h4>
+			</div>
+			<div class="modal-body">
+				<div class="zc-model-content">
+					<div class="zc-message">确认对工单</div>
+					<span ng-repeat="item in workOrderGroupTicketCode" ng-bind="'#'+item+', '"></span>
+					<div class="zc-message">进行修改么？</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary zc-btn-ok" data-dismiss="modal" ng-click="updateBatchTicket()">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade zc-account-alert" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="deleteWorkOrder">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">删除工单确认</h4>
+			</div>
+			<div class="modal-body">
+				<div class="zc-model-content">
+					<div class="zc-message">确认删除选中的工单？</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary zc-btn-cancle" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary zc-btn-ok" data-dismiss="modal" ng-click="deleteTicketById()">是</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,155 @@
+
+// buttons darken
+// --------------------------------------------------
+@btn-darken-color:               #92909a;
+@btn-darken-bg:                  #2e3439;
+@btn-darken-border:              darken(@btn-darken-bg, 4%);
+// 
+.btn-darken{
+  .button-variant(@btn-darken-color; @btn-darken-bg; @btn-darken-border);
+}
+
+
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:focus,
+  &.focus {
+    color: @color;
+    background-color: darken(@background, 5%);
+        border-color: darken(@border, 12%);
+  }
+  &:hover {
+    color: @color;
+    background-color: darken(@background, 5%);
+        border-color: darken(@border, 10%);
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 5%);
+        border-color: darken(@border, 10%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @color;
+      background-color: darken(@background, 8%);
+          border-color: darken(@border, 16%);
+    }
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+
+
+.navbar-darken{
+  border-radius: 0;
+  border: none;
+  background-color: #3f464c;
+  margin: 0;
+  min-height: 60px;
+  .navbar-header {
+    padding: 0;
+    .navbar-brand {
+      padding: 0;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      position: relative;
+      background-color: #bed2ef;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+  .navbar-form-fixed{
+    margin: 13px 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 10px;
+    .btn-group{
+      margin-left: 5px;
+      margin-right:5px;
+    }
+    .btn-darken{
+      padding-left:10px;
+      padding-right: 10px; 
+    }
+    .dropdown-menu {
+      min-width: auto;
+      .glyphicon-ok {
+        color: green;
+      }
+      .glyphicon-minus {
+        color: red;
+      }
+    }
+  }
+}
+
+.popover{
+  background-color: #3f464c;
+  color: #dcc3c7;
+  &.bottom{
+    > .arrow::after{
+      border-bottom-color:#3f464c;
+    }
+  } 
+}
+
+.dropdown-menu.right{
+  right: 0;
+  left: auto;
+}
+
+.tooltip-warning{
+  .tooltip-inner {
+    color: #880000;
+    background-color: #ffff66;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  }
+  .tooltip-arrow {
+    display: none;
+  }
+}
+
+.panel {
+  border:none;
+  overflow: hidden;
+  box-shadow:1px 1px 3px rgba(0, 0, 0, 0.2);
+  .panel-heading{
+    min-height: 40px;
+    background-color: #f7f7f7;
+  }
+  .table{
+    margin-bottom: 0;
+  }
+}

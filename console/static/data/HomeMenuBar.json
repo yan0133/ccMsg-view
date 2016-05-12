@@ -1,0 +1,22 @@
+{
+    "title": "控制台首页",
+    "menuList": [{
+        "index": "1",
+        "id": "2001",
+        "title": "我的工单",
+        "name": "workOrder",
+        "sref": "zc.back.home.homeWorkOrder"
+    }, {
+        "index": "2",
+        "id": "2002",
+        "title": "我的接待",
+        "name": "myReception",
+        "sref": "zc.back.home.myReception"
+    }, {
+        "index": "3",
+        "id": "2003",
+        "title": "客服概况",
+        "name": "servicesGeneral",
+        "sref": "zc.back.home.servicesGeneral"
+    }]
+}

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-darken" ng-controller="headerCtrl">
+	<div class="navbar-header">
+		<a class="navbar-brand">
+			<ul class="cube-inner">
+				<li class="front"></li>
+				<li class="back"></li>
+				<li class="right"></li>
+				<li class="left"></li>
+				<li class="top"></li>
+				<li class="bottom"></li>
+			</ul>
+		</a>
+	</div>
+	<form class="navbar-form-fixed">
+		<div class="btn-group" uib-dropdown>
+			<a id="split-button" type="button" class="btn btn-darken" ng-href="{{loginUrl}}" target="_blank">登录工作台</a>
+			<button type="button" class="btn btn-darken" uib-dropdown-toggle>
+				<span class="caret"></span>
+				<span class="sr-only">Split button!</span>
+			</button>
+			<ul class="dropdown-menu right" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+				<li role="menuitem">
+					<a href="javascript:void(0)">
+						<i class="glyphicon glyphicon-ok"></i> 在线
+					</a>
+				</li>
+				<li role="menuitem">
+					<a href="javascript:void(0)">
+						<i class="glyphicon glyphicon-minus"></i> 忙碌
+					</a>
+				</li>
+			</ul>
+		</div>
+		<button type="button" class="btn btn-darken" uib-tooltip="测试" tooltip-placement="bottom">
+			<i class="glyphicon glyphicon-filter"></i>
+		</button>
+		<div class="btn-group" uib-dropdown>
+			<button type="button" class="btn btn-darken" uib-dropdown-toggle ng-disabled="disabled">
+				管理员
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu right" uib-dropdown-menu role="menu">
+				<li>
+					<a href="javascript:void(0)">进入老版后台</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">个人信息</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">反馈与意见</a>
+				</li>
+				<li class="divider"></li>
+				<li>
+					<a href="javascript:void(0)" ng-click="logout()">退出</a>
+				</li>
+			</ul>
+		</div>
+	</form>
+</nav>

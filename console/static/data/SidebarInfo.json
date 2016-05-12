@@ -1,0 +1,39 @@
+{
+    "list": [{
+        "id": 1,
+        "title": "首页",
+        "name": "home",
+        "sref": "zc.back.home.homeWorkOrder",
+        "icon": "glyphicon-home"
+    }, {
+        "id": 2,
+        "title": "工单中心",
+        "name": "workOrderCenter",
+        "sref": "zc.back.workOrderCenter.workOrderClass({parentID: '1001', typeID: '301'})",
+        "icon": "glyphicon-th"
+    }, {
+        "id": 3,
+        "title": "知识库",
+        "name": "repository",
+        "sref": "zc.back.repository.issuesManagement({parentID: '1001', typeID: '101'})",
+        "icon": "glyphicon-book"
+    }, {
+        "id": 4,
+        "title": "用户和组",
+        "name": "userAndGroup",
+        "sref": "zc.back.userAndGroup.userGroup({parentID: '1001', typeID: '101'})",
+        "icon": "glyphicon-user"
+    }, {
+        "id": 5,
+        "title": "统计",
+        "name": "statistics",
+        "sref": "zc.back.statistics.onlineCustomerService",
+        "icon": "glyphicon-stats"
+    }, {
+        "id": 6,
+        "title": "设置",
+        "name": "settings",
+        "sref": "zc.back.settings.optionsInfo",
+        "icon": "glyphicon-cog"
+    }]
+}

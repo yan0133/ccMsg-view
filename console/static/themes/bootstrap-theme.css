@@ -1,0 +1,143 @@
+.btn-darken {
+  color: #92909a;
+  background-color: #2e3439;
+  border-color: #252a2e;
+}
+.btn-darken:focus,
+.btn-darken.focus {
+  color: #92909a;
+  background-color: #23272b;
+  border-color: #0a0b0c;
+}
+.btn-darken:hover {
+  color: #92909a;
+  background-color: #23272b;
+  border-color: #0e1011;
+}
+.btn-darken:active,
+.btn-darken.active,
+.open > .dropdown-toggle.btn-darken {
+  color: #92909a;
+  background-color: #23272b;
+  border-color: #0e1011;
+}
+.btn-darken:active:hover,
+.btn-darken.active:hover,
+.open > .dropdown-toggle.btn-darken:hover,
+.btn-darken:active:focus,
+.btn-darken.active:focus,
+.open > .dropdown-toggle.btn-darken:focus,
+.btn-darken:active.focus,
+.btn-darken.active.focus,
+.open > .dropdown-toggle.btn-darken.focus {
+  color: #92909a;
+  background-color: #1c1f22;
+  border-color: #000101;
+}
+.btn-darken:active,
+.btn-darken.active,
+.open > .dropdown-toggle.btn-darken {
+  background-image: none;
+}
+.btn-darken.disabled,
+.btn-darken[disabled],
+fieldset[disabled] .btn-darken,
+.btn-darken.disabled:hover,
+.btn-darken[disabled]:hover,
+fieldset[disabled] .btn-darken:hover,
+.btn-darken.disabled:focus,
+.btn-darken[disabled]:focus,
+fieldset[disabled] .btn-darken:focus,
+.btn-darken.disabled.focus,
+.btn-darken[disabled].focus,
+fieldset[disabled] .btn-darken.focus,
+.btn-darken.disabled:active,
+.btn-darken[disabled]:active,
+fieldset[disabled] .btn-darken:active,
+.btn-darken.disabled.active,
+.btn-darken[disabled].active,
+fieldset[disabled] .btn-darken.active {
+  background-color: #2e3439;
+  border-color: #252a2e;
+}
+.btn-darken .badge {
+  color: #2e3439;
+  background-color: #92909a;
+}
+.navbar-darken {
+  border-radius: 0;
+  border: none;
+  background-color: #3f464c;
+  margin: 0;
+  min-height: 60px;
+}
+.navbar-darken .navbar-header {
+  padding: 0;
+}
+.navbar-darken .navbar-header .navbar-brand {
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  background-color: #bed2ef;
+}
+.navbar-darken .navbar-header .navbar-brand img {
+  width: 60px;
+  height: 60px;
+}
+.navbar-darken .navbar-form-fixed {
+  margin: 13px 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 10px;
+}
+.navbar-darken .navbar-form-fixed .btn-group {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.navbar-darken .navbar-form-fixed .btn-darken {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.navbar-darken .navbar-form-fixed .dropdown-menu {
+  min-width: auto;
+}
+.navbar-darken .navbar-form-fixed .dropdown-menu .glyphicon-ok {
+  color: green;
+}
+.navbar-darken .navbar-form-fixed .dropdown-menu .glyphicon-minus {
+  color: red;
+}
+.popover {
+  background-color: #3f464c;
+  color: #dcc3c7;
+}
+.popover.bottom > .arrow::after {
+  border-bottom-color: #3f464c;
+}
+.dropdown-menu.right {
+  right: 0;
+  left: auto;
+}
+.tooltip-warning .tooltip-inner {
+  color: #880000;
+  background-color: #ffff66;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.tooltip-warning .tooltip-arrow {
+  display: none;
+}
+.panel {
+  border: none;
+  overflow: hidden;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.panel .panel-heading {
+  min-height: 40px;
+  background-color: #f7f7f7;
+}
+.panel .table {
+  margin-bottom: 0;
+}

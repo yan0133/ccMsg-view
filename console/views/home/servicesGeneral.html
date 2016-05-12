@@ -1,0 +1,97 @@
+<div class="cc-content-header">
+	<h5>客服概况</h5>
+</div>
+<div class="cc-content-body">
+	<div class="panel">
+		<div class="panel-heading">实时数据</div>
+		<div class="panel-body">
+			<ul class="item-box">
+				<li>
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">接待机器人会话数</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">平人工会话数</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">排队人数</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">在线客服人数</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-heading">今日会话概况</div>
+		<div class="panel-body">
+			<ul class="item-box">
+				<li ng-click="isActive = 0;" ng-class="{active:isActive == 0}">
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">总会话</div>
+					</div>
+				</li>
+				<li ng-click="isActive = 1;" ng-class="{active:isActive == 1}">
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">机器人有效接待</div>
+					</div>
+				</li>
+				<li ng-click="isActive = 2;" ng-class="{active:isActive == 2}">
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">接人工排队</div>
+					</div>
+				</li>
+				<li ng-click="isActive = 3;" ng-class="{active:isActive == 3}">
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">排队中离开</div>
+					</div>
+				</li>
+				<li ng-click="isActive = 4;" ng-class="{active:isActive == 4}">
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">排队中离开</div>
+					</div>
+				</li>
+			</ul>
+			<div class="chart">
+				<canvas style="height: 400px;" chart chart-line chart-data="data"
+					chart-labels="labels" chart-legend="true" chart-series="series"
+					chart-click="onClick" >
+				</canvas> 
+			</div>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-heading">当前在线接待概况</div>
+		<table class="table table-hover cc-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>客服</th>
+					<th>状态</th>
+					<th>实时接待人数</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<div ng-if="!content.length" class="nodata">
+			<div class="nodata-content">没有数据</div>
+		</div>
+	</div>
+</div>

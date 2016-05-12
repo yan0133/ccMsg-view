@@ -1,0 +1,10 @@
+{
+	"item": {
+		"allUnSendTicketNum": 2,
+		"groupDealTicketNum": 1,
+		"groupUnSendTicketNum": 1,
+		"serviceDealTicketNum": 0
+	},
+	"items": [],
+	"retCode": "000000"
+}

@@ -1,0 +1,34 @@
+<div class="cc-view cc-view-home">
+	<div class="cc-menu">
+		<div class="cc-menu-header">
+			<h4>工单中心</h4>
+		</div>
+		<div class="cc-menu-body" ng-scrollbar scrollbarY>
+			<div class="scroll-y">
+				<div class="cc-menu-list">
+					<dl class="cc-list-group">
+						<dt>工单查询<a href="javascript:void(0)" class="refresh" ng-click="reloadMenu()">刷新</a></dt>
+						<dd ui-sref="{{'zc.back.workOrderCenter.searchService({parentID:1003,typeID:500})'}}" 
+							ng-class="{active:menubarActiveItem == '1003'+'-'+500}">
+							自定义查询
+						</dd>
+						<dd ng-repeat="item in menuBarWork" ui-sref="{{item.serf}}" 
+							ng-class="{active:menubarActiveItem == '1001'+'-'+item.taskId}" ng-click="triggerMenuActive(item)">
+							{{item.taskName}}
+							<span ng-bind="item.ticketNum" class="badge">0</span>
+						</dd>
+					</dl>
+					<dl class="cc-list-group">
+						<dt>SLA服务</dt>
+						<dd ng-repeat="item in menuBarSLA" ui-sref="{{item.serf}}" 
+							ng-class="{active:menubarActiveItem == '1002'+'-'+item.taskId}" ng-click="triggerMenuActive(item)">
+							{{item.taskName}}
+							<span ng-bind="item.ticketNum" class="badge">0</span>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cc-content" ui-view="zcContent"></div>
+</div>

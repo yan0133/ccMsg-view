@@ -1,0 +1,58 @@
+<div class="cc-content-header">
+	<h5>我的接待</h5>
+</div>
+<div class="cc-content-body">
+	<div class="panel">
+		<div class="panel-body">
+			<button type="button" class="btn btn-primary">查询</button>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-heading">我的数据</div>
+		<div class="panel-body">
+			<ul class="item-box">
+				<li ng-click="isActive = 0;" ng-class="{active:isActive == 0}">
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">接待会话量</div>
+					</div>
+				</li>
+				<li ng-click="isActive = 1;" ng-class="{active:isActive == 1}">
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">平均满意度</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">在线时长</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">平均响应时间</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-box">
+						<div class="item-num">0</div>
+						<div class="item-title">平均接待时间</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-heading">今日访客</div>
+		<div class="panel-body">
+			<div class="chart">
+				<canvas chart chart-line chart-data="data"
+					chart-labels="labels" chart-legend="true" chart-series="series"
+					chart-click="onClick">
+				</canvas>
+			</div>
+		</div>
+	</div>
+</div>

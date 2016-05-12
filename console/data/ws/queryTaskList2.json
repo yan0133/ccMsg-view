@@ -1,0 +1,24 @@
+{
+	"items": [{
+		"companyId": "",
+		"createTime": 0,
+		"createUserId": "",
+		"taskId": "201",
+		"taskName": "大于24小时未分配客服工单",
+		"taskStatus": 1,
+		"taskType": 2,
+		"ticketNum": 2,
+		"usedType": 3
+	}, {
+		"companyId": "",
+		"createTime": 0,
+		"createUserId": "",
+		"taskId": "202",
+		"taskName": "大于48小时未解决工单",
+		"taskStatus": 1,
+		"taskType": 2,
+		"ticketNum": 3,
+		"usedType": 3
+	}],
+	"retCode": "000000"
+}

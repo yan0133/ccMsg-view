@@ -1,0 +1,411 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+.cc {
+  width: 100%;
+  height: 100%;
+}
+.cc > .cc-header {
+  position: relative;
+}
+.cc > .cc-header .user-head {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.cc > .cc-body {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.cc-side {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  background-color: #2e3439;
+}
+.cc-side .cc-side-item {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 60px;
+  font-size: 18px;
+  line-height: 60px;
+  text-align: center;
+  color: #bed2ef;
+  cursor: pointer;
+}
+.cc-side .cc-side-item:hover,
+.cc-side .cc-side-item.active {
+  background-color: #13191e;
+}
+.cc-side .tooltip {
+  white-space: nowrap;
+  font-size: 16px;
+}
+.cc-main {
+  margin-left: 60px;
+  height: 100%;
+}
+.cc-main .cc-view {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.cc-main .cc-view .cc-menu {
+  position: relative;
+  width: 280px;
+  height: 100%;
+}
+.cc-main .cc-view .cc-menu .cc-menu-header {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  width: 280px;
+  z-index: 9;
+  background-color: #337ab7;
+  color: #eee;
+}
+.cc-main .cc-view .cc-menu .cc-menu-header h4 {
+  font-weight: 700;
+  margin: 0;
+  line-height: 60px;
+  padding-left: 30px;
+  color: #FFF;
+}
+.cc-main .cc-view .cc-menu .cc-menu-body {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.cc-main .cc-view .cc-menu .cc-menu-body .scroll-y {
+  position: absolute;
+  left: 0;
+  right: -17px;
+  top: 0;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.cc-main .cc-view .cc-menu .cc-menu-body .cc-menu-list {
+  padding: 15px;
+}
+.cc-main .cc-view .cc-content {
+  position: absolute;
+  left: 280px;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background-color: #e9eaed;
+  overflow: scroll;
+}
+.cc-main .cc-view .cc-content .cc-content-header {
+  position: fixed;
+  left: 340px;
+  right: 0;
+  top: 0;
+  height: 60px;
+}
+.cc-main .cc-view .cc-content .cc-content-header h5 {
+  margin: 0;
+  color: #bed2ef;
+  line-height: 60px;
+  text-align: center;
+  text-indent: -100px;
+  font-size: 16px;
+}
+.cc-main .cc-view .cc-content .cc-content-body {
+  padding: 20px 20px 60px;
+  min-width: 900px;
+}
+.cc-main .cc-view .cc-content .cc-content-footer {
+  position: fixed;
+  left: 340px;
+  bottom: 17px;
+  border: none;
+  border-top: 1px solid #eee;
+}
+dl.cc-list-group {
+  margin-bottom: 30px;
+}
+dl.cc-list-group > dt {
+  padding-left: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #337ab7;
+  margin-bottom: 10px;
+}
+dl.cc-list-group > dt .refresh {
+  float: right;
+  font-weight: normal;
+}
+dl.cc-list-group > dd {
+  color: #5c6b74;
+  padding: 8px 5px 8px 15px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+dl.cc-list-group > dd:hover,
+dl.cc-list-group > dd.active {
+  background-color: #e9eaed;
+  border-radius: 3px;
+  color: #26353e;
+}
+dl.cc-list-group .badge {
+  float: right;
+  background-color: inherit;
+  color: inherit;
+}
+.listbox {
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+.listbox .panel {
+  overflow: hidden;
+}
+ul.item-box {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.item-box > li {
+  flex: 1 1 0;
+  text-align: center;
+  margin: 10px;
+  background-color: #e9eaed;
+}
+ul.item-box > li[ng-click] {
+  cursor: pointer;
+}
+ul.item-box > li.active {
+  background-color: #337ab7;
+  color: #FFF;
+}
+ul.item-box > li .item-box {
+  line-height: 60px;
+  height: 120px;
+  text-align: center;
+}
+ul.item-box > li .item-box .item-num {
+  font-size: 35px;
+}
+ul.item-box > li .item-box .item-title {
+  font-size: 16px;
+}
+.cc-table thead > tr > th {
+  border-bottom-width: 1px;
+  font-weight: normal;
+  padding: 12px 8px;
+}
+.cc-table tbody > tr[ng-click] {
+  cursor: pointer;
+}
+.cc-table tbody > tr:last-child > td {
+  border-bottom: 1px solid #ddd;
+}
+.nodata {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.nodata-content {
+  color: #999;
+  text-align: center;
+}
+.pagination-box {
+  float: right;
+  margin-right: 10px;
+}
+/************************************************* LOGO STA *************************************************/
+.logo {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.cube-inner {
+  animation: 10s ease-in-out 2s normal none infinite running fastspin;
+  height: 100%;
+  left: 50%;
+  margin: -15px 0 0 -15px;
+  padding: 0;
+  top: 50%;
+  transform: rotateX(-33.5deg) rotateY(45deg);
+  transform-origin: 15px 15px 0;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+.cube-inner,
+.cube-inner li {
+  display: block;
+  position: absolute;
+}
+.cube-inner li {
+  height: 30px;
+  transition: transform 1s ease-in-out 0s;
+  width: 30px;
+}
+.cube-inner .back,
+.cube-inner .front,
+.cube-inner .left,
+.cube-inner .right,
+.cube-inner .top {
+  background: rgba(0, 0, 0, 0) radial-gradient(transparent 30%, rgba(0, 0, 0, 0.2) 100%) repeat scroll 0 0;
+}
+.cube-inner li::after {
+  backface-visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  height: 30px;
+  position: absolute;
+  transition: transform 1s ease-in-out 0s;
+  width: 30px;
+}
+.cube-inner .front {
+  transform: translateZ(15px);
+}
+.cube-inner .back {
+  transform: rotateX(-180deg) translateZ(15px);
+}
+.cube-inner .right {
+  transform: rotateY(90deg) translateZ(15px);
+}
+.cube-inner .left {
+  transform: rotateY(-90deg) translateZ(15px);
+}
+.cube-inner .top {
+  transform: rotateX(90deg) translateZ(15px);
+}
+.cube-inner .bottom {
+  transform: rotateX(-90deg) translateZ(15px);
+}
+@keyframes fastspin {
+  0% {
+    transform: rotateX(-33.5deg) rotateY(45deg);
+  }
+  10%,
+  100% {
+    transform: rotateX(-33.5deg) rotateY(-315deg);
+  }
+}
+/************************************************* LOGO END *************************************************/
+.chart {
+  padding: 20px;
+}
+.login-content {
+  background-color: #000;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.3) 10%, rgba(0, 0, 0, 0.5) 100%);
+  background-repeat: repeat;
+  height: 100%;
+  padding: 10px;
+  overflow: auto;
+}
+.login-content form {
+  position: relative;
+  width: 580px;
+  border: 1px solid #080808;
+  background-color: rgba(20, 20, 20, 0.9);
+  margin: 10% auto;
+  overflow: hidden;
+}
+.login-content form > div:first-child {
+  border: 1px solid #464646;
+  width: 490px;
+  padding: 50px 50px 80px;
+  background-color: rgba(50, 50, 50, 0.9);
+  position: relative;
+  z-index: 9;
+}
+.login-content form > div:first-child h1 {
+  color: #fefefe;
+}
+.login-content form > div:first-child .error-msg {
+  color: #c95656;
+}
+.login-content form > div:first-child .form-groups {
+  overflow: hidden;
+  font-size: 20px;
+}
+.login-content form > div:first-child .form-groups > div {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.login-content form > div:first-child .form-groups > div input {
+  border: 0;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 50px;
+  padding-right: 20px;
+  background-color: inherit;
+}
+.login-content form > div:first-child .form-groups > div .input-addon {
+  position: absolute;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  left: 0;
+  font-size: 26px;
+}
+.login-content form > div:first-child .form-groups > div .input-addon i {
+  top: 3px;
+}
+.login-content form > div:first-child .form-groups > div:first-child {
+  border-bottom: 1px solid #bcbcbc;
+}
+.login-content form > div:first-child .form-groups .us-control {
+  color: #333;
+  border: 1px solid #bcbcbc;
+  border-radius: 5px 5px 0 0;
+  background-color: #dfdfdf;
+}
+.login-content form > div:first-child .form-groups .us-control input {
+  color: #333;
+}
+.login-content form > div:first-child .form-groups .us-control input:focus {
+  background-color: #FFF;
+}
+.login-content form > div:first-child .form-groups .pw-control {
+  border: 1px solid #646464;
+  border-top: 0;
+  background-color: #1b1b1b;
+  color: #FFF;
+  border-radius: 0 0 5px 5px;
+}
+.login-content form > div:first-child .form-groups .pw-control input {
+  color: #FFF;
+}
+.login-content form > div:first-child .form-groups .pw-control input:focus {
+  background-color: #000;
+}
+.login-content form > .btn-body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 88px;
+  height: 100%;
+  overflow: hidden;
+}
+.login-content form > .btn-body button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  font-size: 80px;
+  color: #bbb;
+}
+.login-content form > .btn-body button:hover {
+  color: #FFF;
+}

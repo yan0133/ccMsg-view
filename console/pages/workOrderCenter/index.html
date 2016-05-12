@@ -1,0 +1,36 @@
+<div class="zc-view zc-view-workOrderCenter">
+	<div class="zc-menu">
+		<div class="zc-menu-header">工单中心</div>
+		<div class="zc-menu-body" zc-scrollbars>
+			<ul class="zc-menu-listBox">
+				<li class="zc-menu-list">
+					<div class="zc-menu-list-header zc-border-bottom">
+						<span>工单查询</span>
+						<span class="funcSpan" ng-click="reloadMenu()">刷新</span> <i class="zc-border-line"></i>
+					</div>
+					<ul class="zc-menu-child-listBox">
+						<li class="zc-menu-child-list" ui-sref="{{'zc.back.workOrderCenter.searchService({parentID:1003,typeID:500})'}}" ng-class="{active:menubarActiveItem == '1003'+'-'+500}">
+							<span class="zc-menu-children-list-text">自定义查询</span>
+						</li>
+						<li class="zc-menu-child-list" ng-repeat="item in menuBarWork" ui-sref="{{item.serf}}" ng-class="{active:menubarActiveItem == '1001'+'-'+item.taskId}" ng-click="triggerMenuActive(item)">
+							<span ng-bind="item.taskName" class="zc-menu-children-list-text"></span>
+							<span ng-bind="item.ticketNum" class="funcSpan zc-menu-children-list-number badge">10</span>
+						</li>
+					</ul>
+				</li>
+				<li class="zc-menu-list">
+					<div class="zc-menu-list-header zc-border-bottom">
+						<span>SLA服务</span> <i class="zc-border-line"></i>
+					</div>
+					<ul class="zc-menu-child-listBox">
+						<li class="zc-menu-child-list" ng-repeat="item in menuBarSLA" ui-sref="{{item.serf}}" ng-class="{active:menubarActiveItem == '1002'+'-'+item.taskId}" ng-click="triggerMenuActive(item)">
+							<span ng-bind="item.taskName" class="zc-menu-children-list-text"></span>
+							<span ng-bind="item.ticketNum" class="funcSpan zc-menu-children-list-number badge">10</span>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div ui-view="zcContent" class="zc-content"></div>
+</div>

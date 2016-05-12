@@ -1,0 +1,78 @@
+<div class="cc-content-header">
+	<h5>
+		我的工单
+	</h5>
+</div>
+<div class="cc-content-body">
+	<div class="panel">
+		<div class="panel-body">
+			<ul class="item-box">
+				<li ng-click="isActive = 0;" ng-class="{active:isActive == 0}">
+					<div class="item-box">
+						<div class="item-num">{{contentNum.serviceDealTicketNum?contentNum.serviceDealTicketNum:0}}</div>
+						<div class="item-title">我处理中的工单</div>
+					</div>
+				</li>
+				<li ng-click="isActive = 1;" ng-class="{active:isActive == 1}">
+					<div class="item-box">
+						<div class="item-num">{{contentNum.groupDealTicketNum?contentNum.groupDealTicketNum:0}}</div>
+						<div class="item-title">我客服组处理中的工单</div>
+					</div>
+				</li>
+				<li ng-click="isActive = 2;" ng-class="{active:isActive == 2}">
+					<div class="item-box">
+						<div class="item-num">{{contentNum.groupUnSendTicketNum?contentNum.groupUnSendTicketNum:0}}</div>
+						<div class="item-title">我客服组未分配的工单</div>
+					</div>
+				</li>
+				<li ng-click="isActive = 3;" ng-class="{active:isActive == 3}">
+					<div class="item-box">
+						<div class="item-num">{{contentNum.allUnSendTicketNum?contentNum.allUnSendTicketNum:0}}</div>
+						<div class="item-title">所有未分配工单</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-heading"></div>
+		<table class="table table-hover cc-table">
+			<thead>
+				<tr>
+					<th>编号</th>
+					<th>优先级</th>
+					<th>标题</th>
+					<th>工单发起人</th>
+					<th>创建日期</th>
+					<th>受理客服</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="items in content" ng-click="getViewWorkOrderDetail(items)">
+					<td>{{items.ticketCode}}</td>
+					<td>
+						<span ng-if="items.ticketLevel == 0">低</span>
+						<span ng-if="items.ticketLevel == 1">中</span>
+						<span ng-if="items.ticketLevel == 2">高</span>
+						<span ng-if="items.ticketLevel == 3">紧急</span>
+					</td>
+					<td>
+						<a href="javascript:;">
+							{{items.ticketTitle.length <10 ? items.ticketTitle:(items.ticketTitle | limitTo:10)+'...'}}
+						</a>
+					</td>
+					<td>{{items.startName}}</td>
+					<td>{{items.createTime ? (items.createTime*1000 | date:'MM-dd HH:mm'):'--'}}</td>
+					<td>{{items.dealUserName}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div ng-if="!content.length" class="nodata">
+			<div class="nodata-content">没有数据</div>
+		</div>
+		<div class="pagination-box" ng-if="content.length">
+			<uib-pagination total-items="totalItems" ng-model="currentPage" 
+				max-size="3" class="pagination" boundary-link-numbers="true" rotate="false"></uib-pagination>
+		</div>
+	</div>
+</div>

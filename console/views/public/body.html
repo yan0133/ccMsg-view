@@ -1,0 +1,7 @@
+<div class="cc-side" ng-controller="SidebarCtrl">
+	<div class="cc-side-item" ng-repeat="item in sidebarInfo.list" ng-click="expression" 
+	ng-class="{active:sidebarActiveItem == item.name}" ui-sref="{{item.sref}}" tooltip-placement="right" uib-tooltip="{{item.title}}">
+		<span class="glyphicon {{item.icon}}"></span>
+	</div>
+</div>
+<div class="cc-main" ui-view="zcMain"></div>

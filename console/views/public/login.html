@@ -1,0 +1,29 @@
+<div class="login-content" ng-controller="LoginCtrl">
+	<form browser-autocompelte-form="" class="form-horizontal" ng-submit="login()">
+		<div>
+			<h1>LOGIN</h1>
+			<div class="error-msg" ng-bind="loginError" ng-show="errorLoginState"></div>
+			<div class="form-groups">
+				<div class="us-control">
+					<span class="input-addon">
+						<i class="glyphicon glyphicon-user"></i>
+					</span>
+					<input class="form-control input-lg" maxlength="40" type="input" id="userEmail" 
+						placeholder="请输入邮箱账号" ng-model="loginUser">
+				</div>
+				<div class="pw-control">
+					<span class="input-addon">
+						<i class="glyphicon glyphicon-eye-close"></i>
+					</span>
+					<input class="form-control input-lg" maxlength="40" type="password" id="userPassword" 
+						placeholder="请输入登录密码" ng-model="loginPwd">
+				</div>
+			</div>
+		</div>
+		<div class="btn-body">
+			<button type="submit" class="reg_submit" title="登录">
+				<i class="glyphicon glyphicon-chevron-right"></i>
+			</button>
+		</div>
+	</form>
+</div>

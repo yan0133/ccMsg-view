@@ -1,0 +1,68 @@
+<div class="zc-content-header" ng-bind="content.title ? content.title:'我的工单';"></div>
+<div class="zc-content-body">
+	<ul class="zc-content-count-listBox">
+		<li class="zc-content-count-list" ng-click="myWorkOrder();isWorkActive = 1-1" ng-class="{active:isWorkActive == 1-1}">
+			<div class="itemBox">
+				<div class="item-num" ng-bind="contentNum.serviceDealTicketNum?contentNum.serviceDealTicketNum:'0'"></div>
+				<div class="item-title">我处理中的工单</div>
+			</div>
+		</li>
+		<li class="zc-content-count-list" ng-click="myGroupWorkOrder();isWorkActive = 1-2" ng-class="{active:isWorkActive == 1-2}">
+			<div class="itemBox">
+				<div class="item-num" ng-bind="contentNum.groupDealTicketNum?contentNum.groupDealTicketNum:'0'"></div>
+				<div class="item-title">我客服组处理中的工单</div>
+			</div>
+		</li>
+		<li class="zc-content-count-list" ng-click="myGroupNoOrder();isWorkActive = 1-3" ng-class="{active:isWorkActive == 1-3}">
+			<div class="itemBox">
+				<div class="item-num" ng-bind="contentNum.groupUnSendTicketNum?contentNum.groupUnSendTicketNum:'0'"></div>
+				<div class="item-title">我客服组未分配的工单</div>
+			</div>
+		</li>
+		<li class="zc-content-count-list" ng-click="allNoOrder();isWorkActive = 1-4" ng-class="{active:isWorkActive == 1-4}">
+			<div class="itemBox">
+				<div class="item-num" ng-bind="contentNum.allUnSendTicketNum?contentNum.allUnSendTicketNum:'0'"></div>
+				<div class="item-title">所有未分配工单</div>
+			</div>
+		</li>
+	</ul>
+	<div class="panel panel-default">
+		<div class="panel-heading-title">
+			<div ng-bind="menuBarWork.items[menuBar.activeItem].taskName"></div>
+			<span ng-bind="menuBar.menuList[0].worklist[menuBar.activeItem].number"></span>
+		</div>
+		<table class="table work-order-table">
+			<thead class="thead">
+				<tr>
+					<td class="item td1">编号</td>
+					<td class="item td2">优先级</td>
+					<td class="item td3">标题</td>
+					<td class="item td4">工单发起人</td>
+					<td class="item td5">创建日期</td>
+					<td class="item td6">受理客服</td>
+				</tr>
+			</thead>
+			<tbody class="tbody">
+				<tr ng-repeat="items in content" class="work_order_tr">
+					<td class="item td1" ng-click="getViewWorkOrderDetail(items)" ng-bind="items.ticketCode">编号</td>
+					<td class="item td2">
+						<span ng-if="items.ticketLevel == 0">低</span>
+						<span ng-if="items.ticketLevel == 1">中</span>
+						<span ng-if="items.ticketLevel == 2">高</span>
+						<span ng-if="items.ticketLevel == 3">紧急</span>
+					</td>
+					<td class="item td3">
+						<a href="javascript:;" ng-bind="items.ticketTitle.length <10 ? items.ticketTitle:(items.ticketTitle | limitTo:10)+'...'" ng-click="getViewWorkOrderDetail(items)" data-placement="bottom" data-animation="am-flip-x" data-template-url="./views/workOrderCenter/popovers.html" ng-mouseenter="getQuerySimpleTicketInfo(items.ticketId, $index)" data-trigger="hover">标题</a>
+					</td>
+					<td class="item td4" ng-click="getViewWorkOrderDetail(items)" ng-bind="items.startName">工单发起人</td>
+					<td class="item td5" ng-click="getViewWorkOrderDetail(items)" ng-bind="items.createTime? (items.createTime*1000 | date:'MM-dd HH:mm'):'--'">创建日期</td>
+					<td class="item td6" ng-click="getViewWorkOrderDetail(items)" ng-bind="items.dealUserName">受理客服</td>
+				</tr>
+			</tbody>
+		</table>
+		<zc-nodata is-nodata="!content.length" nodata-text="没有工单"></zc-nodata>
+		<div class="zc-table-pagination">
+			<zc-pagination config="paginationObj.config" call-back="getTableListByPagination(params)"></zc-pagination>
+		</div>
+	</div>
+</div>

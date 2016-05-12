@@ -1,0 +1,20 @@
+<div class="pagination-box">
+	<ul class="pagination" ng-if="config.totalItems">
+		<li class="totalItems">
+			<a href="javascript: void (0);">共{{config.totalItems}}条</a>
+		</li>
+		<li ng-class="{disabled: isDisablePrev}">
+			<a href="javascript: void (0);" aria-label="Previous" ng-click="prevPage()">
+				<span aria-hidden="true" ng-bind="config.prevText"></span>
+			</a>
+		</li>
+		<li ng-repeat="item in pageList track by $index" ng-class="{active: item == currentPage, unActive: item == more}">
+			<a href="javascript: void (0);" ng-bind="item" ng-click="jumpTo(item)"></a>
+		</li>
+		<li ng-class="{disabled: isDisableNext}">
+			<a href="javascript: void (0);" aria-label="Next" ng-click="nextPage()">
+				<span aria-hidden="true" ng-bind="config.nextText"></span>
+			</a>
+		</li>
+	</ul>
+</div>

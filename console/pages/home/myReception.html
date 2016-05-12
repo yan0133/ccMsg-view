@@ -1,0 +1,95 @@
+<div class="zc-content-header">我的接待</div>
+<div class="zc-content-body">
+	<div class="zc-search-option">
+		<div class="btn-group" data-toggle="buttons-radio" style="margin-left: 25px">
+			<div ng-app="select-menu">
+				<div class="dropdown-btn">
+					<button class="btn btn-default date-btn _btn_date" type="button" ng-click="isShow()">
+						<span ng-bind="dateType"></span>
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-list" ng-hide="isDisplay">
+						<li class="_date_list" ng-click="toggle(tadayNew)" ng-bind="tadayNew"></li>
+						<li class="_date_list" ng-click="toggle(Yesterday)" ng-bind="Yesterday"></li>
+						<li class="_date_list" ng-click="toggle(pastSeventoday)" ng-bind="pastSeventoday"></li>
+						<li class="_date_list" ng-click="toggle(pastThrtoday)" ng-bind="pastThrtoday"></li>
+						<hr style="border-top:1px solid #cccccc">
+						<li style="cursor: pointer;color:#09AEB0" ng-click="isCustomDate()">自定义</li>
+						<li ng-show="CusShow">
+							从
+							<select class="_option_start_y">
+								<option ng-repeat="startYear in startDateYear" ng-bind="startYear + '年'"></option>
+							</select>
+							<select class="_option_start_m">
+								<option ng-repeat="startMonth in startDateMonth" ng-bind="startMonth + '月'"></option>
+							</select>
+							<select class="_option_start_day">
+								<option ng-repeat="startDay in startDateDay" value="{{startDay.DD+ '日'}}">{{startDay.DD + '日'}}</option>
+							</select>
+						</li>
+						<li ng-show="CusShow">
+							到
+							<select class="_option_end_y">
+								<option ng-repeat="endYear in endDateYear" ng-bind="endYear + '年'"></option>
+							</select>
+							<select class="_option_end_m">
+								<option ng-repeat="endMonth in endDateMonth" ng-bind="endMonth + '月'"></option>
+							</select>
+							<select class="_option_end_day">
+								<option ng-repeat="endDay in endDateDay" value="{{endDay.DD + '日'}}">{{endDay.DD + '日'}}</option>
+							</select>
+						</li>
+						<li ng-show="CusShow">
+							<a ng-click="optionDate()">
+								<label style="cursor:pointer;float:right;color:#09AEB0;margin-right: 22px;margin-top: 4px">确定</label>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<button type="button" class="search-submit" style="margin-left: 5px" ng-click="queryByTimeAndSource();">查询</button>
+		<input type="hidden" ng-bind="shortStartTime">
+		<input type="hidden" ng-bind="shortEndTime"></div>
+	<div class="panel-heading-title" style="margin-top: 30px">
+		<div class="panel-heading-title-div" style="margin-left: 25px">我的数据</div>
+	</div>
+	<ul class="zc-content-count-listBoxc">
+		<li class="zc-content-count-list" ng-click="sessionCount();isActive = 1-1" ng-class="{active:isActive == 1-1}">
+			<div class="itemBox" ng-click="itemIndex = $index">
+				<div style="font-size: 30px" class="item-num" ng-bind="myReceptionData.sessionCount? myReceptionData.sessionCount:'0'"></div>
+				<div class="item-title">接待会话量</div>
+			</div>
+		</li>
+		<li class="zc-content-count-list" ng-click="avgScore();isActive = 1-2" ng-class="{active:isActive == 1-2}">
+			<div class="itemBox" ng-click="itemIndex = $index">
+				<div style="font-size: 30px" class="item-num" ng-bind="myReceptionData.avgScore"></div>
+				<div class="item-title">平均满意度</div>
+			</div>
+		</li>
+		<li class="zc-content-count-list" style="cursor: default">
+			<div class="itemBox">
+				<div class="item-num" ng-bind="myReceptionData.onlineDuration == 0? '-':(myReceptionData.onlineDuration | formatHms)"></div>
+				<div class="item-title">在线时长</div>
+			</div>
+		</li>
+		<li class="zc-content-count-list" style="cursor: default">
+			<div class="itemBox">
+				<div class="item-num" ng-bind="myReceptionData.avgResponseTime == 0? '-':(myReceptionData.avgResponseTime | formatHms)"></div>
+				<div class="item-title">平均响应时间</div>
+			</div>
+		</li>
+		<li class="zc-content-count-list" style="cursor: default">
+			<div class="itemBox">
+				<div class="item-num" ng-bind="myReceptionData.avgReceiveTime == 0?  '-':(myReceptionData.avgReceiveTime | formatHms)"></div>
+				<div class="item-title">平均接待时间</div>
+			</div>
+		</li>
+	</ul>
+	<div class="panel-heading-title">
+		<div class="panel-heading-title-div" style="margin-left: 25px">今日访客</div>
+	</div>
+	<div class="echart-div">
+		<div id="serviceEchat" class="echart-table"></div>
+	</div>
+</div>

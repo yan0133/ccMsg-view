@@ -1,0 +1,26 @@
+{
+	"items": [{
+		"companyId": "352556c6244b41ef82457678776506a5",
+		"createTime": 1462421520,
+		"dealGroupId": "8a7ffab6c1ea44c2b2ae9fbfeb6fdc84",
+		"dealGroupName": "组一",
+		"firstAcceptTime": 1462421808,
+		"startName": "59724085@qq.com",
+		"startType": 1,
+		"startUserId": "6ba12e21b07948fbb6993f5319830421",
+		"ticketCode": 1462421520,
+		"ticketFrom": 1,
+		"ticketId": "a25eceb4e36f459b96599ca5b1586a62",
+		"ticketLevel": 0,
+		"ticketStatus": 0,
+		"ticketTitle": "北京市电信通留言",
+		"ticketType": 0,
+		"updateServiceId": "5f14a1021d984b01ace738c925a1e991",
+		"updateTime": 1462421808
+	}],
+	"pageCount": 1,
+	"pageNo": 1,
+	"pageSize": 10,
+	"retCode": "000000",
+	"totalCount": 1
+}

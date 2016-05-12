@@ -1,0 +1,77 @@
+<div class="navbar navbar-default zc-navbar" role="navigation">
+	<div class="container-fluid zc-container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" ui-sref="zc.back.home.customerService" ng-controller="SiteInfoCtrl" style="padding: 0; margin: 0">
+				<img ng-src="{{ siteInfo.logo.src }}" alt="{{ siteInfo.logo.alt }}"></a>
+		</div>
+		<div class="zc-workOrderTab">
+			<div class="zc-createWorkOrder">
+				<a href="javascript:;" ng-click="newWorkOrder()" ui-sref="zc.back.createWorkOrder">+创建工单</a>
+			</div>
+			<ul class="zc-myQuestionList">
+				<li class="zc-myQuestion" ng-repeat="item in tabListObj.tabList track by $index" ng-class="{active: tabListObj.activeIndex == $index}">
+					<a href="javascript: void (0);" ng-click="tabTrigger($index)" ng-bind="item.ticketCode?(item.ticketCode.length <9? ('#'+item.ticketCode): ('#'+item.ticketCode | limitTo:8)+'...'):(item.title.length <9? item.title:(item.title | limitTo:8)+'...')"></a>
+					<span ng-click="tabClose($index)">x</span>
+				</li>
+			</ul>
+		</div>
+		<div class="zc-collapse collapse navbar-collapse navbar-right" id="js-navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="dropdown loginStatus" ng-if="userAuthInfo.info.cusRoleId !== '5555'">
+					<span class="dropdown-toggle loginStatus_a" data-toggle="dropdown">
+						<span ng-class="{'loginStatus_live':loginStatus == 1,'loginStatus_busy':loginStatus == 2}"></span>
+					</span>
+					<ul class="dropdown-menu loginStatus_menu">
+						<li ng-click="changeLoginStatus(1)">
+							<span class="loginStatus_live"></span>
+							<span class="loginStatus_word">在线</span>
+						</li>
+						<li ng-click="changeLoginStatus(2)">
+							<span class="loginStatus_busy"></span>
+							<span class="loginStatus_word">忙碌</span>
+						</li>
+					</ul>
+				</li>
+				<li class="loginWorkS" ng-if="userAuthInfo.info.cusRoleId !== '5555'">
+					<a ng-href="{{loginUrl}}" target="_blank">登录工作台</a>
+				</li>
+				<li class="loginTest">
+					<a class="loginTest_a" ng-href="/chat/pc/index.html?sysNum={{userAuthInfo.info.systemNum}}" target="_blank">
+						<span class="loginTest_icon"></span>
+						<span class="loginTest_name">测试</span>
+					</a>
+				</li>
+				<li>
+					<img class="zc-userInfo-protrait zc-circle" ng-src="{{ userInfo.faceImg }}" alt="{{ userInfo.serviceName }}"></li>
+				<li class="dropdown loginSetting">
+					<span class="dropdown-toggle loginSetting_a" data-toggle="dropdown">
+						<span class="loginSetting_name" ng-bind="userInfo.serviceName.length>
+							5?((userInfo.serviceName | limitTo:5) +'...'):userInfo.serviceName">
+						</span>
+						<span class="loginSetting_icon caret"></span>
+					</span>
+					<ul class="dropdown-menu loginSetting_menu">
+						<li ng-show="userInfo.cusRoleId === '2222' || userInfo.cusRoleId === '3333'">
+							<a href="http://old.sobot.com/console/login.jsp" target="_blank">进入老版后台</a>
+						</li>
+						<li>
+							<a href="javascript: void (0);" ui-sref="zc.back.userDetail({userID: userInfo.serviceId})">个人信息</a>
+						</li>
+						<li>
+							<a href="http://www.sobot.com/chat/pc/index.html?sysNum=4c349791a07b46c1a70b8ac88aa23257" target="_blank">反馈与建议</a>
+						</li>
+						<li ng-controller="LoginCtrl">
+							<a href="javascript: void (0);" ng-click="logout()">退出</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

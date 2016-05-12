@@ -1,0 +1,28 @@
+{
+	"item": {
+		"companyCreateTime": 1458545036,
+		"companyId": "352556c6244b41ef82457678776506a5",
+		"companyName": "恒软商城",
+		"cusRoleId": "3333",
+		"cusRoleName": "超级管理员",
+		"docStatus": 0,
+		"faceImg": "http://img.sobot.com/console/common/face/admin.png",
+		"imFlag": 1,
+		"lastLoginTime": 1462499880,
+		"maxAccept": 10,
+		"phoneNo": "18701101898",
+		"replyAuthFlag": 0,
+		"secondDomain": "91zhengban.sobot.com",
+		"serviceEmail": "123220173@qq.com",
+		"serviceId": "5f14a1021d984b01ace738c925a1e991",
+		"serviceName": "王彦",
+		"serviceNick": "王彦",
+		"serviceStatus": 1,
+		"supportEmail": "support@91zhengban.sobot.com",
+		"systemNum": "352556c6244b41ef82457678776506a5",
+		"ti": "DAGarvCwesmuEaItQLJQ4RRBPJqsi4HhJBCzenQzYXY",
+		"ticketAuthFlag": 0
+	},
+	"items": [],
+	"retCode": "000000"
+}

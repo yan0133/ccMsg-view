@@ -1,0 +1,21 @@
+<div class="cc-view cc-view-home">
+	<div class="cc-menu">
+		<div class="cc-menu-header">
+			<h4 ng-bind="menuBar.title"></h4>
+		</div>
+		<div class="cc-menu-body">
+			<div class="scroll-y">
+				<div class="cc-menu-list">
+					<dl class="cc-list-group">
+						<dt>项目列表</dt>
+						<dd ng-repeat="item in menuBar.menuList" ui-sref="{{item.sref}}"
+							ng-class="{active: homeMenuActive.activeItem == item.id}">
+							{{item.title}}<span class="badge">14</span>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cc-content" ui-view="zcContent"></div>
+</div>

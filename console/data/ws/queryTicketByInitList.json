@@ -1,0 +1,36 @@
+{
+	"items": [{
+		"companyId": "352556c6244b41ef82457678776506a5",
+		"createTime": 1462422740,
+		"startName": "59724085@qq.com",
+		"startType": 1,
+		"startUserId": "6ba12e21b07948fbb6993f5319830421",
+		"ticketCode": 1462422740,
+		"ticketFrom": 1,
+		"ticketId": "b48d5fd673824412805c0021e238ece6",
+		"ticketLevel": 0,
+		"ticketStatus": 0,
+		"ticketTitle": "北京市电信通留言",
+		"ticketType": 0,
+		"updateTime": 1462422740
+	}, {
+		"companyId": "352556c6244b41ef82457678776506a5",
+		"createTime": 1458895495,
+		"startName": "187269255@qq.com",
+		"startType": 1,
+		"startUserId": "3e6073375dea4e12b0c8598c15c3cad3",
+		"ticketCode": 1458895495,
+		"ticketFrom": 1,
+		"ticketId": "dd961f3448504c728655f0ca14547c37",
+		"ticketLevel": 0,
+		"ticketStatus": 0,
+		"ticketTitle": "北京市电信留言",
+		"ticketType": 0,
+		"updateTime": 1458895495
+	}],
+	"pageCount": 1,
+	"pageNo": 1,
+	"pageSize": 10,
+	"retCode": "000000",
+	"totalCount": 2
+}
